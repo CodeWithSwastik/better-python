@@ -39,6 +39,14 @@ def __sub__(self, other):
     else:
         raise unsupported_type('-', self, other)
 
+@modify(dict)
+def __add__(self, other:dict):
+    if isinstance(other, dict):
+        return {**self, **other}
+    else:
+        raise unsupported_type('+', self, other)
+
+
 # Doesn't work :/
 # @modify(str)
 # def __setitem__(self, key, value):
