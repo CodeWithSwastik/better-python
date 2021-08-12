@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 version = "1.0.0"
  
@@ -13,7 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Swas.py",
     author_email="cwswas.py@gmail.com",
-    packages=find_packages(),
+    modules = ['betterpython'],
     url = "https://github.com/CodeWithSwastik/better-python", 
     project_urls={
     "Issue tracker": "https://github.com/CodeWithSwastik/better-python/issues",
