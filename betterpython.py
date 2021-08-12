@@ -6,6 +6,8 @@ def modify(*objects):
         for obj in objects:
             if isinstance(func,property):
                 forbiddenfruit.curse(obj, func.fget.__name__,func) 
+            elif isinstance(func,(staticmethod, classmethod)):
+                forbiddenfruit.curse(obj, func.__func__.__name__,func)
             elif callable(obj):
                 forbiddenfruit.curse(obj, func.__name__,func)
             else:
