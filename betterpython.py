@@ -4,13 +4,21 @@ def modify(*objects):
 
     def decorator(func):
         for obj in objects:
-            forbiddenfruit.curse(obj, func.__name__,func)
+            if isinstance(func,property):
+                forbiddenfruit.curse(obj, func.fget.__name__,func) 
+            elif callable(obj):
+                forbiddenfruit.curse(obj, func.__name__,func)
+            else:
+                raise TypeError
         return func
 
     return decorator
 
-def unsupported_type(op, obj1, obj2):
-    return TypeError(f"unsupported operand type(s) for {op}: '{obj1.__class__.__name__}' and '{obj2.__class__.__name__}'")
+def delete(obj, attribute):
+    forbiddenfruit.reverse(obj, attribute)
+
+
+### Modifications
 
 @modify(str)
 def __invert__(self):
@@ -53,3 +61,6 @@ def __add__(self, other:dict):
 #     temp = list(self)
 #     temp[key] = str(value)
 #     self = ''.join(temp)
+
+def unsupported_type(op, obj1, obj2):
+    return TypeError(f"unsupported operand type(s) for {op}: '{obj1.__class__.__name__}' and '{obj2.__class__.__name__}'")
