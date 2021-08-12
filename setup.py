@@ -13,7 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Swas.py",
     author_email="cwswas.py@gmail.com",
-    modules = ['betterpython'],
+    packages = ['betterpython'],
     url = "https://github.com/CodeWithSwastik/better-python", 
     project_urls={
     "Issue tracker": "https://github.com/CodeWithSwastik/better-python/issues",
